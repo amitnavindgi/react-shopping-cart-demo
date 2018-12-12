@@ -1,4 +1,4 @@
-# Vanilla React.js : Notes for Beginners
+# Quick refresher notes for React.js
 
 This repository contains notes and the code for the brilliant [React.js crash course by Mosh Hamedani](https://www.youtube.com/watch?v=Ke90Tje7VS0).
 
