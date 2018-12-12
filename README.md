@@ -27,28 +27,31 @@ This repository contains notes and the code for the brilliant [React.js crash co
 -   Render function uses JSX.
 -   Render function creates/outputs React elements.
 -   React elements are JS objects and in-memory representation of actual DOM elements.
--   One-to-one mapping between react elements and dom elements.
--   A tree of react elements is virtual dom.
--   React diffs old virtual dom (or old react element) with new virtual dom (or new react element) and applies only the difference to the actual dom tree.
+-   One-to-one mapping between react elements and DOM elements.
+-   A tree of react elements is virtual DOM.
+-   React diffs old virtual DOM (or old react element) with new virtual DOM (or new react element) and applies only the difference to the actual DOM tree.
 -   Virtual DOM is cheap to construct.
 -   One root component called App in every react application and every other component is a child component of this App component.
 -   App.js will contain App class component.
 -   index.js will contain ReactDOM.render(`<App />`, document.getElementById("root"));
 -   App should be imported in index.js.
-
-### React Coding
-
+-   let vs const. Use const if not modifying.
+-   Apply classes to elements using className attribute since class is a reserved keyword in JS.
 -   Import React from 'react' because return of render function is converted to plain javascript by Babel wherein react elements are converted to React.createElement so we are not using react directly but indirectly.
 -   No need of curly braces around object names in import statement if it is the default export from that module ('React' in import React from 'react').
+
+### JSX
+
 -   The JSX returned by render function must have only one parent element because the first argument to React.createElement takes in type of the element and Babel won't know the type if multiple elements exist alongside with no parent like `<h1></h1><h2></h2>`.
 -   JSX expressions are compiled to react elements.
 -   So return this from render function: one parent element with as many child elements put in parenthesis because in JS multi-line return stmt is read properly only with parenthesis otherwise JS assumes return terminates after first line and adds semi-colon automatically.
 -   Use React.fragment as parent div in above note to avoid a div that doesn't do anything.
 -   JSX expressions are like normal JS objects. You can return them from a fn, pass them to a fn, use as value of a const or variable.
 -   JSX is not a templating engine so no ngFor like it is in Angular.
--   Apply classes to elements using className attribute since class is a reserved keyword in JS.
 -   In return stmt within render fn, you can add plain JS in curly braces {}.
--   let vs const. Use const if not modifying.
+
+### Rendering Lists
+
 -   There should be a "key" attribute in `<li>` to help react decide what's changed which is unique to each list element. Or 'key' attribute in every react element that's rendered dynamically using a 'map' for each element in a collection.
 
 ### Styling
@@ -60,7 +63,7 @@ This repository contains notes and the code for the brilliant [React.js crash co
 
 -   No ngIf like in angular because JSX is not a templating engine.
 -   One way: Call a { function } inside render method. Make that function use regular JS to check for conditions and return JSX for different conditions.
--   Another way: { condition `&&` `<jsx>` }
+-   Another way: { condition `&&` `<JSX>` }
 
 ### Event handling
 
@@ -79,7 +82,7 @@ This repository contains notes and the code for the brilliant [React.js crash co
 
 ### What happens when state changes
 
--   Whenever setState is seen, React will schedule a call to the render method. An async call. No fixed time. It created a new virtual dom tree which is compared with the old tree and the diff is applied to the real DOM.
+-   Whenever setState is seen, React will schedule a call to the render method. An async call. No fixed time. It created a new virtual DOM tree which is compared with the old tree and the diff is applied to the real DOM.
 
 ### Passing arugments to event handlers
 
@@ -107,7 +110,7 @@ onClick={ () => this.handleClick(product) }
 
 -   Use react developer tools.
 
-### prop vs state
+### props vs state
 
 -   Props includes data that we give to a component.
 -   State includes data that is local or private to that component.
