@@ -84,7 +84,7 @@ This repository contains notes and the code for the brilliant [React.js crash co
 
 -   Whenever setState is seen, React will schedule a call to the render method. An async call. No fixed time. It created a new virtual DOM tree which is compared with the old tree and the diff is applied to the real DOM.
 
-### Passing arugments to event handlers
+### Passing arguments to event handlers
 
 -   Whenever we need to pass args to event handlers (arrow fns which are called in onClick), call an arrow fn whose body will contain a call to the actual event handler.
 
